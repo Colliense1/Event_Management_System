@@ -1,0 +1,127 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.profile-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card::before {
+    width: 50%;
+    height: 70%;
+    content: '';
+    position: absolute;
+    background: #140044;
+    clip-path: circle(55% at 0 0);
+    border-top-left-radius: 10px;
+    left: 0;
+    top: 0;
+}
+
+.profile-information {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.profile-picture {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.profile_pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    border: 2px solid #140044;
+}
+
+.profile_details .profile_details_h3 {
+    margin: 0;
+}
+
+.profile_details_h3 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.profile-extras {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.profile-extras table {
+    margin: 0;
+    border-collapse: collapse;
+    width: auto;
+}
+
+.profile-extras td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-extras td:first-child {
+    font-weight: bold;
+    width: 30%;
+}
+
+.profile-actions {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.btn {
+    margin-right: 10px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.edit-profile {
+    background-color: #140044;
+}
+
+.logout {
+    background-color: #dc3545;
+}
+
+@media (max-width: 600px) {
+    .profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile_pic {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+        border: 2px solid #140044;
+    }
+
+    .profile-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

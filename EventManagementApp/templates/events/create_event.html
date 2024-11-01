@@ -1,0 +1,51 @@
+{% extends 'partials/side_nav.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+    <h2>{{ title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="event_name">Event Name:</label>
+            <div class="input-container">
+
+                <input type="text" id="event_name" name="name" class="form-control" value="{{ event.name }}" required
+                    placeholder="Event Name..">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="event_date_time">Event Date:</label>
+            <div class="input-container">
+
+                <input type="datetime-local" id="event_date_time" name="date" class="form-control"
+                    value="{{ event.date|date:'Y-m-d H:i' }}" required>
+            </div>
+        </div>
+        <div class="form-group side-by-side">
+            <div class="input-container">
+                <label for="event_location">Location:</label>
+
+                <input type="text" id="event_location" name="location" class="form-control" value="{{ event.location }}"
+                    required placeholder="Location..">
+            </div>
+            <div class="input-container">
+                <label for="max_attendees">Max Attendees:</label>
+
+                <input type="number" id="max_attendees" name="max_attendees" class="form-control"
+                    value="{{ event.max_attendees }}" required placeholder="Max-Attendence..">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="event_description">Description:</label>
+            <div class="input-container">
+
+                <input id="event_description" name="description" class="form-control" required
+                    value="{{event.description}}" placeholder="Description..">
+            </div>
+        </div>
+        <button type="submit" class="btn-submit">{{ button }}</button>
+    </form>
+</div>
+{% endblock %}

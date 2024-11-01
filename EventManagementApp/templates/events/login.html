@@ -1,0 +1,40 @@
+{% extends "events/base.html" %}
+
+{% block header %}
+<header>
+    {% include 'partials/nav.html' %}
+</header>
+{% endblock %}
+
+{% block content %}
+
+<body id="login_body">
+    <div class="wrapper_re_log">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="input-group">
+                    {{ form.phone_number.label }}:
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-phone"></i>
+                        {{ form.phone_number }}
+                    </div>
+                    {{ form.phone_number.errors }}
+                </div>
+                <div class="input-group">
+                    {{ form.password.label }}:
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-lock"></i>
+                        {{ form.password }}
+                    </div>
+                    {{ form.password.errors }}
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

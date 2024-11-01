@@ -1,0 +1,141 @@
+#login_body {
+    background-color: #E4E9F7;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+.wrapper_re_log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #140044;
+}
+
+.input-group-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.input-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-group:last-child {
+    margin-right: 0;
+}
+
+.input-group {
+    margin-bottom: 10px;
+    color: #140044;
+    font-weight: 500;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    color: #140044;
+    font-size: 12px;
+}
+
+.form-container input,
+select {
+    width: 100%;
+    padding: 5px 5px 5px 30px;
+    border: 1px solid #140044;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #140044;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .input-group-wrapper {
+        flex-direction: row;
+        margin: 5px;
+
+        /* Stack input groups vertically */
+    }
+
+    .input-group {
+        margin-right: 5px;
+        /* Remove right margin */
+        margin-bottom: 15px;
+        /* Add bottom margin for spacing */
+    }
+
+    .form-container {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.5em;
+        /* Slightly smaller heading */
+    }
+
+    button {
+        padding: 12px;
+        /* Adjust button padding */
+        font-size: 14px;
+        /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 100%;
+        /* Full width on very small screens */
+    }
+
+    h2 {
+        font-size: 1.2em;
+        /* Further reduce heading size */
+    }
+
+    button {
+        font-size: 13px;
+        /* Further reduce button font size */
+    }
+}

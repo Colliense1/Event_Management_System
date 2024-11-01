@@ -1,0 +1,35 @@
+{% extends 'partials/side_nav.html' %}
+{% load static %}
+
+{% block content %}
+
+<body class="event_list_body">
+    <h2 class="all_event_h2">All Events</h2>
+    <table class="event-table">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.name }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.location }}</td>
+                <td>
+                    {% if request.user == event.creator %}
+                    <a href="{% url 'update_event' event.id %}" class="button">Edit</a>
+                    <a href="{% url 'delete_event' event.id %}" class="button delete">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+{% endblock %}

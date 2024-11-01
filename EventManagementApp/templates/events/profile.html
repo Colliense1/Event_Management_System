@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Event Management System{% endblock %}</title>
+    {% load static %}
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_styles.css' %}">
+
+</head>
+
+<body>
+    {% block header %}
+    <header>
+        {% include 'partials/side_nav.html' %}
+    </header>
+    {% endblock %}
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-information">
+                <div class="profile-picture">
+                    {% if user_pro.profile_photo %}
+                    <img src="{{ user_pro.get_profile_photo }}" alt="Profile Photo" class="profile_pic">
+                    {% else %}
+                    {% if user_pro.gender == 'Male' %}
+                    <img src="{% static 'images/default_male_avatar.png' %}" alt="Default Male Avatar"
+                        class="profile_pic">
+                    {% elif user_pro.gender == 'Female' %}
+                    <img src="{% static 'images/default_female_avatar.png' %}" alt="Default Female Avatar"
+                        class="profile_pic">
+                    {% else %}
+                    <img src="{% static 'images/default_other_avatar.png' %}" alt="Default Other Avatar"
+                        class="profile_pic">
+                    {% endif %}
+                    {% endif %}
+                    <div class="profile_details">
+                        <h3 class="profile_details_h3">{{ user_pro.full_name|title }}</h3>
+                        <p>{{ user_pro.phone_number }}</p>
+                    </div>
+                </div>
+                <div class="profile-extras">
+                    <table>
+                        <tr>
+                            <td><strong>Email:</strong></td>
+                            <td>{{ user_pro.email }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gender:</strong></td>
+                            <td>{{ user_pro.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Address:</strong></td>
+                            <td>{{ user_pro.address|title }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <a href="#" class="btn edit-profile">Edit Profile</a>
+                <a href="{% url 'user_logout' %}" class="btn logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

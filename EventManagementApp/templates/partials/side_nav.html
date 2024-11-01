@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}Event Management System{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/sidenav_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create_event_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event_list_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delete_event_styles.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="fa-solid fa-bars sidebarOpen"></i>
+            <span class="logo navLogo"><a href="{% url 'user_profile' %}">EMS</a></span>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">EMS</a></span>
+                    <a href="{% url 'user_profile' %}"><i class="fa-solid fa-xmark siderbarClose"></i></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'user_profile' %}">Profile</a></li>
+                    <li><a href="{% url 'create_event' %}">Create Event</a></li>
+                    <li><a href="{% url 'event_list' %}">Event List</a></li>
+                </ul>
+            </div>
+
+            <div class="searchBox">
+                <div class="searchToggle">
+
+                </div>
+                <div class="search-field">
+
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-header">
+                        {% if user_pro.profile_photo %}
+                        <img src="{{ user_pro.get_profile_photo }}" alt="Profile Photo" class="profile-pic">
+                        {% else %}
+                        {% if user_pro.gender == 'Male' %}
+                        <img src="{% static 'images/default_male_avatar.png' %}" alt="Default Male Avatar"
+                            class="profile-pic">
+                        {% elif user_pro.gender == 'Female' %}
+                        <img src="{% static 'images/default_female_avatar.png' %}" alt="Default Female Avatar"
+                            class="profile-pic">
+                        {% else %}
+                        <img src="{% static 'images/default_other_avatar.png' %}" alt="Default Other Avatar"
+                            class="profile-pic">
+                        {% endif %}
+                        {% endif %}
+                        <div class="profile-details">
+                            <h3>{{ user_pro.full_name | title }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="{% static 'js/sidenav_scripts.js' %}"></script>
+</body>
+
+</html>

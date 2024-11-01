@@ -1,0 +1,103 @@
+{% extends "events/base.html" %}
+
+{% block header %}
+<header>
+    {% include 'partials/nav.html' %}
+</header>
+{% endblock %}
+
+
+{% block content %}
+
+<body id="login_body">
+    <div class="wrapper_re_log">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="input-group-wrapper">
+                    <div class="input-group">
+                        <label for="full_name">Full Name:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="full_name" name="full_name" required>
+                        </div>
+                        {{ form.full_name.errors }}
+                    </div>
+
+                    <div class="input-group">
+                        <label for="username">Username:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        {{ form.username.errors }}
+                    </div>
+                </div>
+
+                <div class="input-group-wrapper">
+                    <div class="input-group">
+                        <label for="phone_number">Phone Number:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="phone_number" name="phone_number" required>
+                        </div>
+                        {{ form.phone_number.errors }}
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        {{ form.email.errors }}
+                    </div>
+                </div>
+
+                <div class="input-group-wrapper">
+                    <div class="input-group">
+                        <label for="profile_photo">Profile Photo:</label>
+                        <input type="file" id="profile_photo" name="profile_photo" accept="image/*">
+                        {{ form.profile_photo.errors }}
+                    </div>
+
+                    <div class="input-group">
+                        <label for="gender">Gender:</label>
+                        {{ form.gender }}
+                        {{ form.gender.errors }}
+
+                    </div>
+                </div>
+
+                <div class="input-group-wrapper">
+                    <div class="input-group">
+                        <label for="address">Address:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-map-marker-alt"></i>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        {{ form.address.errors }}
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        {{ form.password.errors }}
+                    </div>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+{% endblock %}

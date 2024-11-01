@@ -1,0 +1,45 @@
+{% extends 'events/base.html' %}
+{% load static %}
+{% block header %}
+<header>
+    {% include 'partials/nav.html' %}
+</header>
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/event_detail_styles.css' %}">
+</head>
+
+<body class="event_details_body">
+
+    <div class="event_details_card">
+        <div class="banner">
+            <img class="banner_image" src="{% static 'images/default_banner.jpg' %}" alt="Event Banner">
+        </div>
+        <div class="event-info">
+            <div class="event-header">
+                <h2 class="event-name">{{ event.name|title }}</h2>
+                <p class="event-date">{{ event.date }}</p>
+            </div>
+        </div>
+        <div class="event-details">
+            <div class="detail">
+                <strong class="detail_strong">Location:</strong> <span>{{ event.location |title }}</span>
+            </div>
+            <div class="detail">
+                <strong class="detail_strong">Max Attendees:</strong> <span>{{ event.max_attendees }}</span>
+            </div>
+            <div class="detail">
+                <strong class="detail_strong">Already Booked:</strong> <span>{{ event.booked_count }}</span>
+            </div>
+        </div>
+        <div class="event-description">
+            <h3 class="event_description_h3">Description</h3>
+            <p>{{ event.description }}</p>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
